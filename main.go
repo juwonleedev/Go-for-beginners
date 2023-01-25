@@ -5,33 +5,20 @@ import (
 	"strings"
 )
 
-// 작성할 패키지 명
-func multiply(a int,b int) int {
-	return a*b
-	// 필수적으로 타입 명시
-}
+// naked return
+func lenAndUpper (name string) (length int, uppercase string) {
 
-func multiply2(a, b int) int{
-	return a*b
-}
+	// defer: function 내용이 다 실행되고 나서 실행된다
+	defer fmt.Println("I'm done")
 
-// go는 리턴값을 여러개 반환 가능 
-func lenAndUpper(name string) (int,string){
-	return len(name),strings.ToUpper(name)
-	// go는 표준 라이브러리가 잘 되어 있다
-}
-
-func repeatMe(words ...string){
-	fmt.Println(words)
+	length = len(name)
+	uppercase=strings.ToUpper(name)
+	// =를 쓰는 이유 : 값 업데이트 (생성x)
+	return
+	// return할 값을 명시하지 않아도 된다 (선언 문에서 작성했으므로 )
 }
 
 func main() {
-	fmt.Println(multiply(2,2))
-	
 	totalLength, upperName := lenAndUpper("nico")
 	fmt.Println(totalLength,upperName)
-	// go 는 사용되지 않는 변수에 대해 에러 발생
-	// totalLength, _ := lenAndUppper("nico")로 리턴값 무시 가능 
-
-	repeatMe("nico","love","cute")
 }
