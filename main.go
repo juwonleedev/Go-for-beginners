@@ -2,23 +2,23 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-// naked return
-func lenAndUpper (name string) (length int, uppercase string) {
-
-	// defer: function 내용이 다 실행되고 나서 실행된다
-	defer fmt.Println("I'm done")
-
-	length = len(name)
-	uppercase=strings.ToUpper(name)
-	// =를 쓰는 이유 : 값 업데이트 (생성x)
-	return
-	// return할 값을 명시하지 않아도 된다 (선언 문에서 작성했으므로 )
+func canIDrink1 (age int) bool {
+	if age < 18 {
+		return false
+	}
+	return true
 }
 
-func main() {
-	totalLength, upperName := lenAndUpper("nico")
-	fmt.Println(totalLength,upperName)
+// variable expression - if,else에서 사용하기 위해 선언
+func canIDrink2 (age int) bool {
+	if koreanAge := age + 2 ; koreanAge < 18 {
+		return false
+	}
+	return true 
+}
+
+func main () {
+	fmt.Println(canIDrink2(16))
 }
