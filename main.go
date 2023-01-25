@@ -4,21 +4,17 @@ import (
 	"fmt"
 )
 
-func canIDrink1 (age int) bool {
-	if age < 18 {
+func canIDrink(age int) bool {
+	switch koreanAge := age +2 ; koreanAge {
+	case 10:
 		return false
-	}
-	return true
-}
 
-// variable expression - if,else에서 사용하기 위해 선언
-func canIDrink2 (age int) bool {
-	if koreanAge := age + 2 ; koreanAge < 18 {
-		return false
+	case 18:
+		return true
 	}
-	return true 
+	return false
 }
 
 func main () {
-	fmt.Println(canIDrink2(16))
+	fmt.Println(canIDrink(18))
 }
