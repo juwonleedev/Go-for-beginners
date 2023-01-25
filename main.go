@@ -4,16 +4,18 @@ import (
 	"fmt"
 )
 
-// struct : object와 비슷한데 class 개념 
-// map = [key] value 
-// map도 key-value와 사용 가능
-// map에 대한 function들은 나중에 (추가, 조회 등)
+type person struct {
+	name string
+	age int
+	favFood [] string 
+}
 
 func main () {
-	nico := map[string]string{"name":"nico","age":"12"}
-	fmt.Println(nico)
+	favFood:=[]string{"kimchi","cake","ramen"}
+	nico := person {"nico",18,favFood}
+	fmt.Println(nico.name)
 
-	for _,value := range nico {
-		fmt.Println(value)
-	}
+	// 혹은 이렇게 field:value로 표현
+	nico2 := person {name:"nico",age:18,favFood: favFood}
+	fmt.Println(nico2.age)
 }
